@@ -33,5 +33,3 @@ jobs:
       with:
         branch: gh-pages
         folder: dist
-        repositorty-name: LukeOnuke/omcss
-    
