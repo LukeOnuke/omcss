@@ -7,7 +7,7 @@ import AddressInput from './AddressInput.vue';
 
 <template>
     <nav class="flex flex-row flex-space navbar">
-        <NavElement href="/"><b>OMCS</b></NavElement>
+        <NavElement href="/"><b>OMCSs</b></NavElement>
         <AddressInput></AddressInput>
         <section class="flex flex-row flex-gap">
             <NavElement href="">GitHub</NavElement>
