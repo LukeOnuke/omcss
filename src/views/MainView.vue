@@ -63,7 +63,7 @@ onMounted(() => {
         <h1>A error occured!</h1>
         <p><i>{{error.name}}</i> : {{error.message}}</p>
         <hr>
-        <p>Please report the error <a href="">here</a>.</p>
+        <p>If you think this is a bug, please report the error <a href="">here</a>.</p>
       </BigAlert>
     </div>
     <div v-if="isReady">
