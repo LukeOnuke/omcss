@@ -34,4 +34,5 @@ jobs:
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
         branch: gh-pages
+        folder: public
         target-folder: docs
