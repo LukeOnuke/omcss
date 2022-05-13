@@ -32,7 +32,7 @@ function getStatus(ip, port){
   resp.value = undefined;
 
   let url = `http://${ipp.value}:${portp.value}/api/status`;
-  if(ipp.value == undefined) url = `http://${ipp.value}/api/status`;
+  if(portp.value == undefined) url = `http://${ipp.value}/api/status`;
 
   fetch(`http://${ipp.value}:${portp.value}/api/status`, {method: 'GET'})
   .then(response => response.json())
