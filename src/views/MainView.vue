@@ -9,30 +9,26 @@ import Badge from '@/components/Badge.vue';
 import Player from '@/components/Player.vue';
 import NavBar from '@/components/NavBar.vue';
 import {store} from "@/main"
+import { router } from '../main';
 let resp = ref(undefined);
 let isReady = ref(false);
 let error = ref(undefined);
 
 const props = defineProps({
-    ipp:{
-        type: String,
-        required: true
-    },
-    portp:{
+    apiPath:{
         type: String,
         required: true
     }
 });
 
-const {portp, ipp} = toRefs(props);
+const {portp, apiPath: apiPath} = toRefs(props);
 
-function getStatus(ip, port){
+function getStatus(ip){
   error.value = undefined;
   isReady.value = false;
   resp.value = undefined;
 
-  let url = `http://${ipp.value}:${portp.value}/api/status`;
-  if(portp.value == "d") {url = `http://${ipp.value}/api/status`};
+  let url = `${apiPath.value}/api/status`;
 
   console.log(url);
   fetch(url, {method: 'GET', redirect: "follow"})
@@ -51,15 +47,16 @@ function getStatus(ip, port){
 const unsubscribe = store.subscribe((mutation, state) =>{
     console.log(`${mutation.type} - ${mutation.payload}`);
     if(mutation.type = "changeAdress"){
-        getStatus(mutation.payload.adress, mutation.payload.port);
-        
+        getStatus(mutation.payload.adress);
     }
 });
 
 onMounted(() => {
-    console.log(`${ipp.value} ${portp.value}`);
-    store.commit('changeAdress', {adress: ipp.value, port: portp.value});
+    console.log(`Starting on adress ${apiPath.value}`);
+    store.commit('changeAdress', apiPath.value);
 });
+
+
 </script>
 
 <template>

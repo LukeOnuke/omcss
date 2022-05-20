@@ -27,14 +27,10 @@ export const store = createStore({
     },
     mutations: {
         changeAdress(state, adress) {
-            state.adress = adress.adress;
-            state.port = adress.port;
+            state.adress = adress;
         }
     },
     getters: {
-        getPort() {
-            return state.port;
-        },
         getAdress() {
             return state.adress;
         }
@@ -43,7 +39,7 @@ export const store = createStore({
 app.use(store);
 
 const routes = [
-    { path: '/status/:ipp/:portp', component: MainView, props: true },
+    { path: '/status/:apiPath', component: MainView, props: true },
     {
         path: "/",
         component: WelcomeView,
