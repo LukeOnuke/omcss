@@ -5,7 +5,7 @@ import { router } from "@/main";
 let inputText = ref('');
 function clickedQuerry(){
     store.commit('changeAdress', inputText.value);
-    router.push(`/status/${adress}/`);
+    router.push(`/status/${inputText.value}/`);
 }
 </script>
 
