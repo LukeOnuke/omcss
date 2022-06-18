@@ -9,26 +9,34 @@ import Badge from '@/components/Badge.vue';
 import Player from '@/components/Player.vue';
 import NavBar from '@/components/NavBar.vue';
 import {store} from "@/main"
-import { router } from '../main';
+import { router } from '@/main';
+import { knownServers } from '@/utill.js'
 let resp = ref(undefined);
 let isReady = ref(false);
 let error = ref(undefined);
 
 const props = defineProps({
     apiPath:{
-        type: String,
-        required: true
+      type: String,
+      required: true
+    },
+    port:{
+      type: String,
+      required: false
     }
 });
 
-const {portp, apiPath: apiPath} = toRefs(props);
+const {port : port, apiPath: apiPath} = toRefs(props);
 
-function getStatus(ip){
+function getStatus(){
   error.value = undefined;
   isReady.value = false;
   resp.value = undefined;
 
-  let url = `${apiPath.value}/api/status`;
+  let url = `https://${apiPath.value.replace("-", "/")}${port.value ? `:${port.value}` : ""}/status`;
+
+  const knownServerResult = knownServers.find((e)=> e.alias == apiPath.value);
+  if(knownServerResult) url = `https://${knownServerResult.serverUrl}/status`;
 
   console.log(url);
   fetch(url, {method: 'GET', redirect: "follow"})
@@ -101,5 +109,8 @@ onMounted(() => {
         <Badge class="badge" v-for="plugin in resp.plugins" :key="plugin">{{plugin}}</Badge>
       </section>
       </div>
+    </div>
+    <div v-else>
+      <p>Loading...</p>
     </div>
 </template>

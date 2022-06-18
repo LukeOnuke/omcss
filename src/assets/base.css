@@ -5,6 +5,7 @@
     --text: #FCFCFC;
     --secondary-bg: #090F14;
     --highlight: #BF4E30;
+    --border: var(--secondary-bg);
 }
 
 body {
@@ -71,4 +72,24 @@ a {
 
 .h-10 {
     height: 10rem;
+}
+
+button {
+    color: var(--text);
+    background-color: var(--highlight);
+    border-color: var(--border);
+    border-width: 2px;
+    border-style: solid;
+    font-size: 1.2rem;
+    border-radius: 0.2rem;
+}
+
+input {
+    color: var(--text);
+    background-color: var(--secondary-bg);
+    border-color: var(--border);
+    border-width: 2px;
+    border-style: solid;
+    font-size: 1.2rem;
+    border-radius: 0.2rem;
 }

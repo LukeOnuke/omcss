@@ -39,7 +39,8 @@ export const store = createStore({
 app.use(store);
 
 const routes = [
-    { path: '/status/:apiPath', component: MainView, props: true },
+    { path: '/status/:apiPath/', component: MainView, props: true },
+    { path: '/status/:apiPath/:port', component: MainView, props: true },
     {
         path: "/",
         component: WelcomeView,
