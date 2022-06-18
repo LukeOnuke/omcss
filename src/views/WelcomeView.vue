@@ -1,6 +1,10 @@
 <script setup>
+import { onMounted } from '@vue/runtime-core';
 import Badge from '../components/Badge.vue';
 
+onMounted((a) => {
+    document.title = "OMCSS";
+});
 </script>
 
 <template>

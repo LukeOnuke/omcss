@@ -59,7 +59,8 @@ export const router = createRouter({
     // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
     history: createWebHistory(),
     routes, // short for `routes: routes`
-})
+});
+
 
 // 5. Mount the root instance.
 // Make sure to _use_ the router instance to make the

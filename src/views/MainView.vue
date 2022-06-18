@@ -62,6 +62,7 @@ const unsubscribe = store.subscribe((mutation, state) =>{
 onMounted(() => {
     console.log(`Starting on adress ${apiPath.value}`);
     store.commit('changeAdress', apiPath.value);
+    document.title = `OMCSS - ${apiPath.value}`;
 });
 
 
