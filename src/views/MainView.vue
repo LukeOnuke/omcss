@@ -33,13 +33,17 @@ function getStatus(){
   isReady.value = false;
   resp.value = undefined;
 
-  let url = `https://${apiPath.value.replace("-", "/")}${port.value ? `:${port.value}` : ""}/status`;
+  let url = `${apiPath.value.replace("-", "/")}${port.value ? `:${port.value}` : ""}/status`;
 
   const knownServerResult = knownServers.find((e)=> e.alias == apiPath.value);
-  if(knownServerResult) url = `https://${knownServerResult.serverUrl}/status`;
+  if(knownServerResult) url = `${knownServerResult.serverUrl}/status`;
 
   console.log(url);
-  fetch(url, {method: 'GET', redirect: "follow"})
+  fetch("https://link.samifying.com/api/proxy", {method: 'POST', redirect: "follow", headers:{
+    "Content-Type" : "application/json"
+  }, body:JSON.stringify({
+    "url":url
+  })})
   .then(response => response.json())
   .then(data => {
     resp.value = data;
