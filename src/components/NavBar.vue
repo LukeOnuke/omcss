@@ -11,9 +11,9 @@ import Badge from './Badge.vue';
         <NavElement href="/"><b>OMCSS</b> <Badge>Beta</Badge></NavElement>
         <AddressInput></AddressInput>
         <section class="flex flex-row flex-gap">
-            <NavElement href="">GitHub</NavElement>
-            <NavElement href="">Docs</NavElement>
-            <NavElement href="">Creator</NavElement>
+            <NavElement href="https://github.com/LukeOnuke/omcss">GitHub</NavElement>
+            <NavElement href="https://github.com/LukeOnuke/omcss/blob/main/README.md">Docs</NavElement>
+            <NavElement href="https://github.com/LukeOnuke">Creator</NavElement>
         </section>
         
     </nav>
@@ -22,7 +22,7 @@ import Badge from './Badge.vue';
 <style>
 .navbar{
     padding: 0.5vw;
-    max-width: 100vw;
+    max-width: 99vw;
     width: 99vw;
 }
 </style>

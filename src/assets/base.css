@@ -84,7 +84,7 @@ button {
     border-radius: 0.2rem;
 }
 
-input {
+input[type=text] {
     color: var(--text);
     background-color: var(--secondary-bg);
     border-color: var(--border);
@@ -92,4 +92,12 @@ input {
     border-style: solid;
     font-size: 1.2rem;
     border-radius: 0.2rem;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border-color: var(--border);
+    border-width: 2px;
+    border-style: solid;
+    color: var(--highlight);
 }

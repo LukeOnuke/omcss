@@ -12,7 +12,7 @@ function clickedQuerry(){
 
 <template>
     <section class="addressinput">
-        <input placeholder="adress" v-model="inputText" @keyup.enter="clickedQuerry()">
+        <input type="text" placeholder="adress" v-model="inputText" @keyup.enter="clickedQuerry()">
         <button @click="clickedQuerry()">Querry</button>
     </section>
 </template>
