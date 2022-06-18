@@ -22,7 +22,8 @@ import Badge from './Badge.vue';
 <style>
 .navbar{
     padding: 0.5vw;
-    max-width: 99vw;
-    width: 99vw;
+    margin: 0px;
+    max-width: 100%;
+    width: 99%;
 }
 </style>

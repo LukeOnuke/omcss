@@ -105,7 +105,7 @@ onMounted(() => {
       </div>
       <div class="container">
         <h1>Plugins</h1>
-        <section class="flex flex-gap">
+        <section class="flex flex-gap flex-break">
         <Badge class="badge" v-for="plugin in resp.plugins" :key="plugin">{{plugin}}</Badge>
       </section>
       </div>
