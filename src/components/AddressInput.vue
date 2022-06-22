@@ -12,13 +12,26 @@ function clickedQuerry(){
 
 <template>
     <section class="addressinput">
-        <input type="text" placeholder="adress" v-model="inputText" @keyup.enter="clickedQuerry()">
+        <input type="text" placeholder="adress" v-model="inputText" class="address-input-bar" @keyup.enter="clickedQuerry()">
         <button @click="clickedQuerry()">Querry</button>
     </section>
 </template>
 
 <style>
 @import '@/assets/base.css';
+
+@media only screen and (max-width: 400px) {
+    .address-input-bar{
+        width: 9rem;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .address-input-bar{
+        width: 6rem;
+    }
+}
+
 .addressinput{
     border-radius: 0.2rem;
     border-style: solid;
