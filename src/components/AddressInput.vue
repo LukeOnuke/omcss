@@ -20,7 +20,7 @@ function clickedQuerry(){
 <style>
 @import '@/assets/base.css';
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 650px) {
     .address-input-bar{
         width: 9rem;
     }
