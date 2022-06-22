@@ -11,6 +11,7 @@ import NavBar from '@/components/NavBar.vue';
 import {store} from "@/main"
 import { router } from '@/main';
 import { knownServers } from '@/utill.js'
+import BasicInfoHero from '../components/BasicInfoHero.vue';
 let resp = ref(undefined);
 let isReady = ref(false);
 let error = ref(undefined);
@@ -84,17 +85,7 @@ onMounted(() => {
     <div v-if="isReady">
       <div class="bg-medium container">
         <h1>Status</h1>
-      <div class="flex flex-space">
-        <section>
-          <PlayerCount :players="resp.players"></PlayerCount>
-          <CopyableText :text="resp.world.seed.toString()"></CopyableText>
-          <p>{{resp.version}}</p>
-        </section>
-        <section>
-          <InGameClock class="text-align-right" :time="resp.world.time"></InGameClock>
-          <UTCClock class="text-align-right"></UTCClock>
-        </section>
-      </div>
+        <BasicInfoHero :resp="resp"></BasicInfoHero>
       </div>
       <div class="container">
         <h1>Players</h1>
