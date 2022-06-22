@@ -8,7 +8,7 @@ import Badge from './Badge.vue';
 
 <template>
     <nav class="flex flex-row flex-space navbar">
-        <NavElement href="/"><img src="/logo.svg" alt="Open Minecraft Server Status Logo" class="width-height-navbar-char mr-0-5rem"><b>OMCSS</b> <Badge>Beta</Badge></NavElement>
+        <NavElement href="/"><img src="/logo.svg" alt="Open Minecraft Server Status Logo" class="width-height-navbar-char mr-0-5rem"><b class="nav-none">OMCSS</b> <Badge class="nav-none">Beta</Badge></NavElement>
         <AddressInput></AddressInput>
         <button class="burger-container"><div class="flex flex-column burger"><span></span><span></span><span></span></div></button>
         <section class="flex flex-row flex-gap nav-collapsable">
@@ -32,6 +32,12 @@ import Badge from './Badge.vue';
   .burger-container{display: block !important;}
 }
 
+@media only screen and (max-width: 650px) {
+  .nav-none{
+    display: none !important;
+  }
+}
+
 .navbar{
     padding: 0.5vw;
     margin: 0px;
@@ -49,13 +55,13 @@ import Badge from './Badge.vue';
 }
 .burger > span{
     background-color: var(--secondary-bg);
-    width: 2rem;
-    height: 0.3rem;
-    margin-bottom: 0.3rem;
+    width: 1.5rem;
+    height: 0.2rem;
+    margin-bottom: 0.2rem;
     border-radius: 0.1rem;
 }
 
 .burger:first-child{
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
 }
 </style>
