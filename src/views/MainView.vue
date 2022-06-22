@@ -104,14 +104,14 @@ onMounted(() => {
             <p class="text-center">Its silent. The fire crackles.</p>
           </div>
         </section>
-        <section v-else class="flex flex-gap flex-space">
+        <section v-else class="flex flex-gap-big scrollbar-x">
           <Player v-for="plr in resp.players.list" :key="plr.name" :uuid="plr.id" :name="plr.name"></Player>
         </section>
       </div>
       <div class="container">
         <h1>Plugins</h1>
         <section class="flex flex-gap flex-break">
-        <Badge class="badge" v-for="plugin in resp.plugins" :key="plugin">{{plugin}}</Badge>
+        <Badge class="badge" v-for="plugin in resp.plugins" :key="plugin">{{plugin.name}}</Badge>
       </section>
       </div>
     </div>

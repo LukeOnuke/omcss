@@ -8,9 +8,10 @@ import Badge from './Badge.vue';
 
 <template>
     <nav class="flex flex-row flex-space navbar">
-        <NavElement href="/"><b>OMCSS</b> <Badge>Beta</Badge></NavElement>
+        <NavElement href="/"><img src="/logo.svg" alt="Open Minecraft Server Status Logo" class="width-height-navbar-char mr-0-5rem"><b>OMCSS</b> <Badge>Beta</Badge></NavElement>
         <AddressInput></AddressInput>
-        <section class="flex flex-row flex-gap">
+        <button class="burger-container"><div class="flex flex-column burger"><span></span><span></span><span></span></div></button>
+        <section class="flex flex-row flex-gap nav-collapsable">
             <NavElement href="https://github.com/LukeOnuke/omcss">GitHub</NavElement>
             <NavElement href="https://github.com/LukeOnuke/omcss/blob/main/README.md">Docs</NavElement>
             <NavElement href="https://github.com/LukeOnuke">Creator</NavElement>
@@ -20,10 +21,41 @@ import Badge from './Badge.vue';
 </template>
 
 <style>
+@import url(@/assets/base.css);
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .nav-collapsable{
+    display: none !important;
+  }
+
+  .burger-container{display: block !important;}
+}
+
 .navbar{
     padding: 0.5vw;
     margin: 0px;
     max-width: 100%;
     width: 99%;
+}
+
+.width-height-navbar-char {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.burger-container{
+    display: none;
+}
+.burger > span{
+    background-color: var(--secondary-bg);
+    width: 2rem;
+    height: 0.3rem;
+    margin-bottom: 0.3rem;
+    border-radius: 0.1rem;
+}
+
+.burger:first-child{
+    margin-top: 0.3rem;
 }
 </style>

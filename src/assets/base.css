@@ -28,8 +28,16 @@ body {
     gap: 0.5rem;
 }
 
+.flex-gap-big {
+    gap: 3rem;
+}
+
 .flex-row {
     flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
 }
 
 .flex-center {
@@ -104,4 +112,25 @@ input[type=text]:focus {
 
 .flex-break {
     flex-wrap: wrap;
+}
+
+.mr-0-5rem {
+    margin-right: 0.5rem;
+}
+
+.scrollbar-x {
+    overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--highlight);
+    border-radius: 0.5em;
 }
