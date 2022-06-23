@@ -4,7 +4,7 @@ import { ref, onMounted } from 'vue'
 import { router } from "@/main";
 let inputText = ref('');
 function clickedQuerry(){
-    let adress = inputText.value.replace("/", "-");
+    let adress = inputText.value.replace("/", "-").toLowerCase();
     store.commit('changeAdress', adress);
     router.push(`/status/${adress}/`);
 }

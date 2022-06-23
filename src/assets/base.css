@@ -134,3 +134,7 @@ input[type=text]:focus {
     background-color: var(--highlight);
     border-radius: 0.5em;
 }
+
+.pt-3rem {
+    padding-top: 3rem;
+}

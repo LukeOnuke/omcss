@@ -83,7 +83,7 @@ onMounted(() => {
       </BigAlert>
     </div>
     <div v-if="isReady">
-      <div class="bg-medium container">
+      <div class="bg-medium container pt-3rem">
         <h1>Status</h1>
         <BasicInfoHero :resp="resp"></BasicInfoHero>
       </div>
