@@ -4,14 +4,45 @@ import NavElement1 from './NavElement.vue';
 import AddressInput from './AddressInput.vue';
 import Badge from './Badge.vue';
 
+import { onMounted, ref } from 'vue';
+
+let navbar = ref(null);
+let sidebar = ref(null);
+
+onMounted(()=>{
+  window.matchMedia("(max-width: 768px)").addEventListener("change", (e)=>{
+    const sl = sidebar.value;
+    if(!e.matches){
+      sl.classList.add("nav-collapsable");
+
+      sl.classList.remove("topbar");
+    }
+  })
+});
+
+function burgerClick(){
+  const sl = sidebar.value;
+  console.log(sl.classList);
+  if(sl.classList.contains("nav-collapsable")){
+    sl.classList.remove("nav-collapsable");
+
+    sl.classList.add("topbar");
+  }else{
+    sl.classList.add("nav-collapsable");
+
+    sl.classList.remove("topbar");
+  }
+   console.log( navbar.value.offsetHeight);
+  sl.style.top = navbar.value.offsetHeight + "px";
+}
 </script>
 
 <template>
-    <nav class="flex flex-row flex-space navbar">
+    <nav class="flex flex-row flex-space navbar" ref="navbar">
         <NavElement href="/"><img src="/logo.svg" alt="Open Minecraft Server Status Logo" class="width-height-navbar-char mr-0-5rem"><b class="nav-none">OMCSS</b> <Badge class="nav-none">Beta</Badge></NavElement>
         <AddressInput></AddressInput>
-        <button class="burger-container"><div class="flex flex-column burger"><span></span><span></span><span></span></div></button>
-        <section class="flex flex-row flex-gap nav-collapsable">
+        <button @click="burgerClick()" class="burger-container"><div class="flex flex-column burger"><span></span><span></span><span></span></div></button>
+        <section class="flex flex-row flex-gap nav-collapsable" ref="sidebar">
             <NavElement href="https://github.com/LukeOnuke/omcss">GitHub</NavElement>
             <NavElement href="https://github.com/LukeOnuke/omcss/blob/main/README.md">Docs</NavElement>
             <NavElement href="https://github.com/LukeOnuke">Creator</NavElement>
@@ -39,10 +70,18 @@ import Badge from './Badge.vue';
 }
 
 .navbar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    
     padding: 0.5vw;
     margin: 0px;
     max-width: 100%;
     width: 99%;
+    background-color: rgba(3, 4, 5, 0.5);
+    backdrop-filter: blur(10px) saturate(80%);
+    -webkit-backdrop-filter: blur(10px) saturate(80%);
 }
 
 .width-height-navbar-char {
@@ -63,5 +102,28 @@ import Badge from './Badge.vue';
 
 .burger:first-child{
     margin-top: 0.2rem;
+}
+
+.topbar{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 5rem;
+  flex-direction: column !important;
+  justify-content: center;
+  background-color: inherit;
+  border-bottom-color: var(--highlight);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  padding: 1rem;
+  z-index: 1;
+
+  backdrop-filter: blur(10px) saturate(80%);
+  -webkit-backdrop-filter: blur(10px) saturate(80%);
+}
+
+.topbar::before{
+  
 }
 </style>
