@@ -1,5 +1,6 @@
 <script setup>
     import { toRefs } from 'vue';
+    import { report, Severity } from '../reporting';
     const props = defineProps({
         text: String
     });
@@ -7,7 +8,11 @@
     const { text } = toRefs(props);
 
     function copy(){
-        navigator.clipboard.writeText(text.value);
+        navigator.clipboard.writeText(text.value).then(() => {
+            report("Copied text successfully!", "Text placed in clipboard.", Severity.info);
+        }).catch(e => {
+            report("Couldnt copy text!", e, Severity.warn);
+        });
     }
 </script>
 

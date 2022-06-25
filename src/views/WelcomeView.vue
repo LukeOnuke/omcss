@@ -8,7 +8,7 @@ onMounted((a) => {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container mt-3rem">
         <h1>Welcome to OMCSS <Badge>Beta</Badge></h1>
         <p>OMCSS stands for <strong>O</strong>pen <strong>M</strong>inecraft <strong>S</strong>erver <strong>S</strong>tatus. It is designed to use pequlas LittleWeb
         api from the LittleX series of plugins, but in the future will also work with plain querry.</p>

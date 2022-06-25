@@ -14,6 +14,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import MainView from "@/views/MainView.vue"
 import WelcomeView from "@/views/WelcomeView.vue"
+import PlayerView from "@/views/PlayerView.vue"
+
+import { subscribe } from '@/reporting.js';
 
 const app = createApp(App)
 
@@ -41,6 +44,7 @@ app.use(store);
 const routes = [
     { path: '/status/:apiPath/', component: MainView, props: true },
     { path: '/status/:apiPath/:port', component: MainView, props: true },
+    { path: '/player/:idType/:id', component: PlayerView, props: true },
     {
         path: "/",
         component: WelcomeView,
@@ -65,6 +69,10 @@ export const router = createRouter({
 // 5. Mount the root instance.
 // Make sure to _use_ the router instance to make the
 // whole app router-aware.
-app.use(router)
+app.use(router);
+
+subscribe(function(e) {
+    console.log(e);
+});
 
 app.mount('#app')

@@ -12,9 +12,14 @@ import {store} from "@/main"
 import { router } from '@/main';
 import { knownServers } from '@/utill.js'
 import BasicInfoHero from '../components/BasicInfoHero.vue';
+import axios from 'axios';
+import AxiosService from '../services/AxiosService';
+
+import {report} from "@/reporting.js";
+import { Severity } from '../reporting';
+
 let resp = ref(undefined);
 let isReady = ref(false);
-let error = ref(undefined);
 
 const props = defineProps({
     apiPath:{
@@ -30,7 +35,6 @@ const props = defineProps({
 const {port : port, apiPath: apiPath} = toRefs(props);
 
 function getStatus(){
-  error.value = undefined;
   isReady.value = false;
   resp.value = undefined;
 
@@ -40,21 +44,16 @@ function getStatus(){
   if(knownServerResult) url = `${knownServerResult.serverUrl}/status`;
 
   console.log(url);
-  fetch("https://link.samifying.com/api/proxy", {method: 'POST', redirect: "follow", headers:{
-    "Content-Type" : "application/json"
-  }, body:JSON.stringify({
-    "url":url
-  })})
-  .then(response => response.json())
-  .then(data => {
-    resp.value = data;
+
+  AxiosService.getProxied(url).then(function (response){
+    resp.value = response.data;
     isReady.value = true;
-    console.log(data);
-    })
-  .catch((e) => {
-    console.error('Error:', e);
-    error.value = e;
-  });;
+    console.log(response.data);
+  }).catch(function (error){
+    console.error('Error:', error);
+    isReady.value = false;
+    report("Failed to fetch status!", error, Severity.fatal);
+  });
 }
 
 const unsubscribe = store.subscribe((mutation, state) =>{
@@ -74,14 +73,6 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex flex-center full" v-if="error != undefined">
-      <BigAlert>
-        <h1>A error occured!</h1>
-        <p><i>{{error.name}}</i> : {{error.message}}</p>
-        <hr>
-        <p>If you think this is a bug, please report the error <a href="">here</a>.</p>
-      </BigAlert>
-    </div>
     <div v-if="isReady">
       <div class="bg-medium container pt-3rem">
         <h1>Status</h1>
