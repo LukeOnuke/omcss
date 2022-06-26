@@ -27,7 +27,7 @@ subscribe(function (e){
 </template>
 
 <style>
-@import url(@/assets/base.css);
+
 
 .information-container{
     position: fixed;

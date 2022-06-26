@@ -12,10 +12,10 @@ const AxiosService = {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).catch(axiosError);
+        });
     },
     get(url, config = {}) {
-        return clientProxied.get(url, config).catch(axiosError);
+        return clientProxied.get(url, config);
     }
 }
 

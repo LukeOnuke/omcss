@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import MainView from "@/views/MainView.vue"
 import WelcomeView from "@/views/WelcomeView.vue"
 import PlayerView from "@/views/PlayerView.vue"
+import DataView from "@/views/DataView.vue"
 
 import { report, Severity } from './reporting'
 
@@ -46,9 +47,10 @@ export const store = createStore({
 app.use(store);
 
 const routes = [
-    { path: '/status/:apiPath/', component: MainView, props: true },
+    { path: '/status/:apiPath', component: MainView, props: true },
     { path: '/status/:apiPath/:port', component: MainView, props: true },
     { path: '/player/:idType/:id', component: PlayerView, props: true },
+    { path: '/data/:page', component: DataView, props: true },
     {
         path: "/",
         component: WelcomeView,

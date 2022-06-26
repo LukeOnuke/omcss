@@ -8,7 +8,7 @@
 </template>
 
 <style>
-@import url(@/assets/base.css);
+
 .red-banner{
     background: red;
     width: 100%;

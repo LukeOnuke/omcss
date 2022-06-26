@@ -26,7 +26,7 @@ const { resp } = toRefs(props);
 </template>
 
 <style>
-@import url(@/assets/base.css);
+
 @media only screen and (max-width: 400px) {
     .basicinfohero-break{
         flex-direction: column;

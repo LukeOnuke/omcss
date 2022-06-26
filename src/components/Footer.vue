@@ -5,7 +5,7 @@
 </template>
 
 <style>
-@import url(@/assets/base.css);
+
 .footer{
     border-top-width: 1px;
     border-top-color: var(--secondary-bg);

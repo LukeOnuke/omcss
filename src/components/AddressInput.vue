@@ -5,7 +5,6 @@ import { router } from "@/main";
 let inputText = ref('');
 function clickedQuerry(){
     let adress = inputText.value.replace("/", "-").toLowerCase();
-    store.commit('changeAdress', adress);
     router.push(`/status/${adress}/`);
 }
 </script>
@@ -18,7 +17,7 @@ function clickedQuerry(){
 </template>
 
 <style>
-@import '@/assets/base.css';
+
 
 @media only screen and (max-width: 650px) {
     .address-input-bar{

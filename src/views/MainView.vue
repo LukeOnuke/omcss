@@ -56,16 +56,9 @@ function getStatus(){
   });
 }
 
-const unsubscribe = store.subscribe((mutation, state) =>{
-    console.log(`${mutation.type} - ${mutation.payload}`);
-    if(mutation.type = "changeAdress"){
-        getStatus(mutation.payload.adress);
-    }
-});
-
 onMounted(() => {
     console.log(`Starting on adress ${apiPath.value}`);
-    store.commit('changeAdress', apiPath.value);
+    getStatus();
     document.title = `OMCSS - ${apiPath.value}`;
 });
 

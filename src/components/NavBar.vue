@@ -52,7 +52,7 @@ function burgerClick(){
 </template>
 
 <style>
-@import url(@/assets/base.css);
+
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
