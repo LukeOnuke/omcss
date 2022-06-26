@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, toRefs } from 'vue'
+import { ref, onMounted, toRefs, onUpdated } from 'vue'
 import PlayerCount from '@/components/PlayerCount.vue';
 import InGameClock from '@/components/InGameClock.vue';
 import UTCClock from '@/components/UTCClock.vue';
@@ -60,6 +60,10 @@ onMounted(() => {
     console.log(`Starting on adress ${apiPath.value}`);
     getStatus();
     document.title = `OMCSS - ${apiPath.value}`;
+});
+
+onUpdated(() => {
+  getStatus();
 });
 
 

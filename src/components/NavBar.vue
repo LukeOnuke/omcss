@@ -43,8 +43,9 @@ function burgerClick(){
         <AddressInput></AddressInput>
         <button @click="burgerClick()" class="burger-container"><div class="flex flex-column burger"><span></span><span></span><span></span></div></button>
         <section class="flex flex-row flex-gap nav-collapsable acrylic" ref="sidebar">
-            <NavElement href="https://github.com/LukeOnuke/omcss">GitHub</NavElement>
+            <NavElement href="/data/0/">Data</NavElement>
             <NavElement href="https://github.com/LukeOnuke/omcss/blob/main/README.md">Docs</NavElement>
+            <NavElement href="https://github.com/LukeOnuke/omcss">GitHub</NavElement>
             <NavElement href="https://github.com/LukeOnuke">Creator</NavElement>
         </section>
         

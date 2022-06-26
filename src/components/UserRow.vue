@@ -25,10 +25,10 @@ let minecraftName = ref("");
 let discordNames = ref({});
 
 onMounted((e) => {
-    AxiosService.getProxied(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid.value}/`).then(data => {
-        minecraftName.value = data.data.name;
+    AxiosService.get(`https://playerdb.co/api/player/minecraft/${uuid.value}`).then(data => {
+        minecraftName.value = data.data.data.player.username;
     });
-    AxiosService.get(`https://link.samifying.com/api/user/${uuid.value}?guild=${guild.value}`).then(data => {
+    AxiosService.get(`https://link.samifying.com/api/user/${uuid.value}?guild=${guild.value}&simple=true`).then(data => {
         discordNames.value = {handle: data.data.name, nickname: data.data.nickname};
     }).catch(function (e){
         discordNames.value = {handle: "unknown", nickname: "unknown"}
