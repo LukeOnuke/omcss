@@ -17,7 +17,7 @@ subscribe(function (e){
 
 <template>
     <div class="information-container flex flex-column flex-center">
-        <section v-for="i in information" :key="i.time" :class="`information ` + i.severity">
+        <section v-for="i in information" :key="i.time" :class="`information acrylic ` + i.severity">
             <h1><font-awesome-icon :icon="['fas', i.severity == Severity.fatal ?  'circle-xmark' : i.severity == Severity.warn ? 'triangle-exclamation' : 'circle-info']" /> {{i.header}}</h1>
             <hr>
             <!--circle-info triangle-exclamation circle-xmark-->
@@ -34,6 +34,7 @@ subscribe(function (e){
     bottom: 0px;
     left: 0px;
     width: 100vw;
+    z-index: 50;
     padding: none 2rem none 2rem;
 }
 
@@ -46,6 +47,7 @@ subscribe(function (e){
     padding: 0.5rem 1rem 0.5rem 1rem;
     color: var(--info-color);
     margin-bottom: 2rem;
+    max-width: calc(100vw - 8rem);
 }
 
 .information > hr{
@@ -54,16 +56,16 @@ subscribe(function (e){
 
 .information.warn{
     --info-color: hsl(51, 80%, 50%);
-    --info-bg: hsl(51, 80%, 10%);
+    --info-bg: hsla(51, 80%, 10%, 0.5);
 }
 
 .information.info{
     --info-color: hsl(207, 80%, 50%);
-    --info-bg: hsl(207, 80%, 10%);
+    --info-bg: hsla(206, 80%, 10%, 0.7);
 }
 
 .information.fatal{
     --info-color: hsl(351, 80%, 50%);
-    --info-bg: hsl(351, 80%, 10%);
+    --info-bg: hsla(207, 80%, 10%, 0.5);
 }
 </style>

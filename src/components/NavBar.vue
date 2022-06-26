@@ -38,11 +38,11 @@ function burgerClick(){
 </script>
 
 <template>
-    <nav class="flex flex-row flex-space navbar" ref="navbar">
+    <nav class="flex flex-row flex-space navbar acrylic" ref="navbar">
         <NavElement href="/"><img src="/logo.svg" alt="Open Minecraft Server Status Logo" class="width-height-navbar-char mr-0-5rem"><b class="nav-none">OMCSS</b> <Badge class="nav-none">Beta</Badge></NavElement>
         <AddressInput></AddressInput>
         <button @click="burgerClick()" class="burger-container"><div class="flex flex-column burger"><span></span><span></span><span></span></div></button>
-        <section class="flex flex-row flex-gap nav-collapsable" ref="sidebar">
+        <section class="flex flex-row flex-gap nav-collapsable acrylic" ref="sidebar">
             <NavElement href="https://github.com/LukeOnuke/omcss">GitHub</NavElement>
             <NavElement href="https://github.com/LukeOnuke/omcss/blob/main/README.md">Docs</NavElement>
             <NavElement href="https://github.com/LukeOnuke">Creator</NavElement>
@@ -80,8 +80,6 @@ function burgerClick(){
     max-width: 100%;
     width: 99%;
     background-color: rgba(3, 4, 5, 0.5);
-    backdrop-filter: blur(10px) saturate(80%);
-    -webkit-backdrop-filter: blur(10px) saturate(80%);
 }
 
 .width-height-navbar-char {
@@ -116,14 +114,8 @@ function burgerClick(){
   border-bottom-color: var(--highlight);
   border-bottom-style: solid;
   border-bottom-width: 2px;
+  background-color: rgba(3, 4, 5, 0.7);
   padding: 1rem;
   z-index: 1;
-
-  backdrop-filter: blur(10px) saturate(80%);
-  -webkit-backdrop-filter: blur(10px) saturate(80%);
-}
-
-.topbar::before{
-  
 }
 </style>
