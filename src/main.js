@@ -16,12 +16,16 @@ import MainView from "@/views/MainView.vue"
 import WelcomeView from "@/views/WelcomeView.vue"
 import PlayerView from "@/views/PlayerView.vue"
 
-import { subscribe } from '@/reporting.js';
+import { report, Severity } from './reporting'
 
 const app = createApp(App)
 
 library.add(fas, far, fab)
 app.component('font-awesome-icon', FontAwesomeIcon)
+
+window.addEventListener("error", (e) => {
+    report("Uncaught error", `${e.error.message} from ${e.error.line}:${e.error.col}@${e.error.file} ${JSON.stringify(e)}`, Severity.warn);
+});
 
 export const store = createStore({
     state: {
@@ -70,9 +74,5 @@ export const router = createRouter({
 // Make sure to _use_ the router instance to make the
 // whole app router-aware.
 app.use(router);
-
-subscribe(function(e) {
-    console.log(e);
-});
 
 app.mount('#app')
