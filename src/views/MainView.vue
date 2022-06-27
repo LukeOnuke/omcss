@@ -34,13 +34,13 @@ const props = defineProps({
 
 const {port : port, apiPath: apiPath} = toRefs(props);
 
-function getStatus(){
+function getStatus(apiPath, port){
   isReady.value = false;
   resp.value = undefined;
 
-  let url = `${apiPath.value.replace("-", "/")}${port.value ? `:${port.value}` : ""}/status`;
+  let url = `${apiPath.replace("-", "/")}${port ? `:${port}` : ""}/status`;
 
-  const knownServerResult = knownServers.find((e)=> e.alias == apiPath.value);
+  const knownServerResult = knownServers.find((e)=> e.alias == apiPath);
   if(knownServerResult) url = `${knownServerResult.serverUrl}/status`;
 
   console.log(url);
@@ -58,12 +58,12 @@ function getStatus(){
 
 onMounted(() => {
     console.log(`Starting on adress ${apiPath.value}`);
-    getStatus();
+    getStatus(apiPath.value, port.value);
     document.title = `OMCSS - ${apiPath.value}`;
 });
 
-onUpdated(() => {
-  getStatus();
+router.afterEach((to, from, faliure) => {
+    getStatus(to.props.apiPath, to.props.port);
 });
 
 

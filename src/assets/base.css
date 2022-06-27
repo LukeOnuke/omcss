@@ -171,6 +171,10 @@ th {
     margin-right: 1rem;
 }
 
+.mb-1rem {
+    margin-bottom: 1rem;
+}
+
 .disabled-link {
     pointer-events: none;
     color: gray !important;
