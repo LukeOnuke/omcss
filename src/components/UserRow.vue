@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, toRefs } from 'vue';
 import AxiosService from '../services/AxiosService';
+import GuildToRoleService from '../services/GuildToRoleService';
 const props = defineProps({
     id:{
       type: Number,
@@ -28,7 +29,7 @@ onMounted((e) => {
     AxiosService.get(`https://playerdb.co/api/player/minecraft/${uuid.value}`).then(data => {
         minecraftName.value = data.data.data.player.username;
     });
-    AxiosService.get(`https://link.samifying.com/api/user/${uuid.value}?guild=${guild.value}&simple=true`).then(data => {
+    AxiosService.get(`https://link.samifying.com/api/user/${uuid.value}?simple=true`).then(data => { //&guild=${guild.value}&role=${GuildToRoleService.getRoleFromGuild(guild.value)}
         discordNames.value = {handle: data.data.name, nickname: data.data.nickname};
     }).catch(function (e){
         discordNames.value = {handle: "unknown", nickname: "unknown"}

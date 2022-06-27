@@ -35,15 +35,15 @@ function goToCurrent(){
 <template>
     <div class="flex flex-row flex-center">
         <div :class="`flex flex-row  ${current != 0 ? '' : 'disabled-link'}`">
-            <a href="/data/0">0</a>
+            <router-link to="/data/0">0</router-link>
 
-            <a :href="`/data/${Math.max(0, current - 1)}`" class="mx-1rem"><font-awesome-icon :icon="['fas', 'chevron-left']"/></a>
+            <router-link :to="`/data/${Math.max(0, current - 1)}`" class="mx-1rem"><font-awesome-icon :icon="['fas', 'chevron-left']"/></router-link>
         </div>
         <input input type="text" placeholder="1" v-model="current" @keyup.enter="goToCurrent()" class="pagenation-center"/>
         <div :class="`flex flex-row  ${current != maxPage ? '' : 'disabled-link'}`">
-            <a :href="`/data/${Math.min(maxPage, current + 1)}`" class="mx-1rem"><font-awesome-icon :icon="['fas', 'chevron-right']"/></a>
+            <router-link :to="`/data/${Math.min(maxPage, current + 1)}`" class="mx-1rem"><font-awesome-icon :icon="['fas', 'chevron-right']"/></router-link>
 
-            <a :href="'/data/' + maxPage">{{maxPage}}</a>
+            <router-link :to="`/data/${maxPage}`">{{maxPage}}</router-link>
         </div>
     </div>
     
