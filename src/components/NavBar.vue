@@ -26,11 +26,11 @@ function burgerClick(){
   if(sl.classList.contains("nav-collapsable")){
     sl.classList.remove("nav-collapsable");
 
-    sl.classList.add("topbar");
+    sl.classList.add("topbar", "acrylic");
   }else{
     sl.classList.add("nav-collapsable");
 
-    sl.classList.remove("topbar");
+    sl.classList.remove("topbar", "acrylic");
   }
    console.log( navbar.value.offsetHeight);
   sl.style.top = navbar.value.offsetHeight + "px";
@@ -42,7 +42,7 @@ function burgerClick(){
         <NavElement href="/"><img src="/logo.svg" alt="Open Minecraft Server Status Logo" class="width-height-navbar-char mr-0-5rem"><b class="nav-none">OMCSS</b> <Badge class="nav-none">Beta</Badge></NavElement>
         <AddressInput></AddressInput>
         <button @click="burgerClick()" class="burger-container"><div class="flex flex-column burger"><span></span><span></span><span></span></div></button>
-        <section class="flex flex-row flex-gap nav-collapsable acrylic" ref="sidebar">
+        <section class="flex flex-row flex-gap nav-collapsable" ref="sidebar">
             <NavElement href="/data/0/">Data</NavElement>
             <NavElement href="https://github.com/LukeOnuke/omcss/blob/main/README.md">Docs</NavElement>
             <NavElement href="https://github.com/LukeOnuke/omcss">GitHub</NavElement>
@@ -108,7 +108,7 @@ function burgerClick(){
   top: 0px;
   left: 0px;
   width: 100vw;
-  height: 5rem;
+  height: 7rem;
   flex-direction: column !important;
   justify-content: center;
   background-color: inherit;

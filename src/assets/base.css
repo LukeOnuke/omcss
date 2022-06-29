@@ -1,10 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Teko:wght@500&display=swap');
 :root {
     --main-bg: #030405;
     --medium-bg: #05080D;
     --text: #FCFCFC;
     --secondary-bg: #090F14;
-    --highlight: #BF4E30;
+    --highlight-pure: hsl(13, 60%, 47%);
+    --highlight: hsl(13, 50%, 47%);
+    --secondary-color-pure: #30bfa7;
+    --secondary-color-dark: hsl(171, 59%, 5%);
     --border: var(--secondary-bg);
 }
 
@@ -61,9 +64,13 @@ body {
     background-color: var(--medium-bg);
 }
 
+.bg-secondary-color {
+    background-color: var(--secondary-color-dark);
+}
+
 .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -123,7 +130,7 @@ input[type=text]:focus {
 }
 
 ::-webkit-scrollbar {
-    width: 1em;
+    width: 0.75rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -185,4 +192,36 @@ th {
     pointer-events: none;
     color: inherit !important;
     /*TODO : FIND ANOTHER COLOR*/
+}
+
+.hero-force {
+    width: 100%;
+    height: 75vh;
+    max-width: 100%;
+}
+
+.hero * h1 {
+    font-size: 4rem;
+    color: var(--secondary-color-pure);
+    font-family: 'Teko', sans-serif;
+}
+
+.hero * p {
+    font-size: 2rem;
+}
+
+.hero>section {
+    width: 30%;
+}
+
+.hero>img {
+    width: 60%;
+}
+
+.bg-cover {
+    background-size: cover;
+}
+
+.mc-bg {
+    background-image: url('/img/display.png');
 }
