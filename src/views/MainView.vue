@@ -43,9 +43,11 @@ function getStatus(apiPath, port){
   const knownServerResult = knownServers.find((e)=> e.alias == apiPath);
   if(knownServerResult) url = `${knownServerResult.serverUrl}/status`;
 
+  url=`https://${url}`;
+
   console.log(url);
 
-  AxiosService.getProxied(url).then(function (response){
+  AxiosService.get(url).then(function (response){
     resp.value = response.data;
     isReady.value = true;
     console.log(response.data);

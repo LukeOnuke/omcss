@@ -50,7 +50,7 @@ router.afterEach((to, from, faliure) => {
 <section></section>
 <div v-if="data != undefined" class="pt-3rem container">
     <div class="flex flex-center">
-        <table class="mb-1rem">
+        <table class="mb-1rem" :key="currentPage">
         <tr>
             <th colspan="7">Linked accounts</th>
         </tr>
@@ -59,11 +59,10 @@ router.afterEach((to, from, faliure) => {
             <th>Minecraft Name</th>
             <th>Minecraft ID</th>
             <th>Discord Name</th>
-            <th>Discord Nickname</th>
             <th>Discord ID</th>
             <th>Registerd in guild</th>
         </tr>
-        <UserRow v-for="user of data.content" :key="user.id" :id="user.id" :uuid="user.uuid" :discord-id="user.discordId" :guild="user.guildId"></UserRow>
+        <UserRow v-for="user of data.content" :key="user.id" :id="user.id" :uuid="user.uuid" :discord-id="user.user.discordId" :guild="user.guild.discordId"></UserRow>
     </table>
     </div>
 

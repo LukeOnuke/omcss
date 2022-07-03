@@ -7,15 +7,8 @@ const clientProxied = axios.create({
 const client = axios.create({});
 
 const AxiosService = {
-    getProxied(url) {
-        return clientProxied.post("", { "url": url }, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    },
     get(url, config = {}) {
-        return clientProxied.get(url, config);
+        return client.get(url, config);
     }
 }
 

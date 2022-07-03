@@ -13,7 +13,7 @@ const props = defineProps({
         required: true
     },
     memberCount:{
-        type: String,
+        type: Number,
         required: true
     }
 });
