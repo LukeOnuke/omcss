@@ -13,7 +13,7 @@
 
 <template>
   <article class="player-container">
-      <h1 class="player-h1">{{name}}</h1>
+      <h1 class="player-h1"><router-link :to="`/player/${name}`">{{name}}</router-link></h1>
       <img :src="'https://crafatar.com/renders/body/' + uuid" :alt="'Minecraft skin of player ' + name">
   </article>
 </template>

@@ -41,7 +41,7 @@ onMounted((e) => {
     <tr>
         <th>{{id}}</th>
 
-        <th v-if="minecraftName != ''">{{minecraftName}}</th><th v-else> LOADING</th>
+        <th v-if="minecraftName != ''"><router-link :to="`/player/${minecraftName}`">{{minecraftName}}</router-link></th><th v-else> LOADING</th>
 
         <th>{{uuid}}</th>
 

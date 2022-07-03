@@ -55,7 +55,7 @@ function burgerClick(){
 <style>
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
   /* For mobile phones: */
   .nav-collapsable{
     display: none !important;
@@ -108,7 +108,7 @@ function burgerClick(){
   top: 0px;
   left: 0px;
   width: 100vw;
-  height: 7rem;
+  height: 8rem;
   flex-direction: column !important;
   justify-content: center;
   background-color: inherit;

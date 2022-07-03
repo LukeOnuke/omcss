@@ -49,7 +49,7 @@ app.use(store);
 const routes = [
     { path: '/status/:apiPath', component: MainView, props: true },
     { path: '/status/:apiPath/:port', component: MainView, props: true },
-    { path: '/player/:idType/:id', component: PlayerView, props: true },
+    { path: '/player/:name', component: PlayerView, props: true },
     { path: '/data/:page', component: DataView, props: true },
     {
         path: "/",

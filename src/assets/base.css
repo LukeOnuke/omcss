@@ -225,3 +225,7 @@ th {
 .mc-bg {
     background-image: url('/img/display.png');
 }
+
+.ml-1rem {
+    margin-left: 1rem;
+}

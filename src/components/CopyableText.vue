@@ -2,10 +2,17 @@
     import { toRefs } from 'vue';
     import { report, Severity } from '../reporting';
     const props = defineProps({
-        text: String
+        text:{
+            type: String,
+            required: true
+        },
+        codeblock:{
+            type: String,
+            required: false
+        }
     });
 
-    const { text } = toRefs(props);
+    const { text, codeblock } = toRefs(props);
 
     function copy(){
         navigator.clipboard.writeText(text.value).then(() => {
@@ -17,5 +24,10 @@
 </script>
 
 <template>
-    <p>{{text}} <font-awesome-icon class="highlight-text" :icon="['far', 'copy']" v-on:click="copy()"/></p>
+    <p>
+        <pre v-if="codeblock"><code v-html="text"></code></pre> 
+        <span v-else>{{text}}</span> 
+
+        <font-awesome-icon class="highlight-text ml-1rem" :icon="['far', 'copy']" v-on:click="copy()"/>
+    </p>
 </template>
